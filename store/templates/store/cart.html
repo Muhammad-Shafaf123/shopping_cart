@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <link rel="stylesheet" href="{% static 'css/cartStyle.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="root">
+        <div class="row nav-bar">
+            <div class="col-md-3">
+                <img class="logo-img" src="{% static 'images/imgbin_logo-circlr-redmi-5-xiaomi-png.png' %}" alt="logo-image">
+                <h6 class="logo-text pt-3 ">MyShopy</h6>
+            </div>
+            <div class="col-md-6 ">
+                </div>
+            <div class="col-md-3 pt-3">
+
+    
+                <img class="user_img mr-5 mt-1" src="{% static 'images/icons8-change-user-50.png' %}" alt="cart_image">
+                <h6 class="cart-text pt-2 pr-2">User</h6>
+                
+            </div>
+        </div>
+        <div class="container shadow-lg p-3 mb-5 bg-white rounded mt-5">
+            <div class="row">
+                <div class="col-md-4 pt-4">
+                    <a href="{% url 'store' %}">
+                        <button type="button" class="btn btn-secondary" data-toggle="button" aria-pressed="false" autocomplete="off">
+                        &#x2190; Countinue Shopping
+                      </button>
+                    </a>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4"></div>
+    
+                
+            </div>
+            <div class="row pt-5">
+                <div class="col-md-4">
+                    <h4>Item: 4 </h4>
+                </div>
+                <div class="col-md-4 ">
+                    <h5>Total: <strong>Rs. 3200.00</strong></h5>
+                </div>
+                <div class="col-md-4 ">
+                    <a href="{% url 'checkout' %}">
+                    <button style="float: right;" type="button" class="btn btn-success">Check Out</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container shadow-lg p-3 mb-5 bg-white rounded mt-5">
+            <div class="row">
+                <div class="col p-3"></div>
+                <div class="col-3"><h6 style="font-weight: bold;">Item</h6></div>
+                <div class="col"><h6 style="font-weight: bolder;">Price</h6></div>
+                <div class="col"><h6 style="font-weight: bolder;">Quamtity</h6></div>
+                <div class="col"><h6 style="font-weight: bolder;">Total</h6></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col p-3"><img src="{% static 'images/item3_kids.jpeg' %}" width="45px" alt=""></div>
+                <div class="col-3"><h6 style="font-weight: 500;">Boys Printed Pure Cotton T Shirt</h6></div>
+                <div class="col"><h6 style="font-weight: 500;">RS. 1025</h6></div>
+                <div class="col"><h6 style="font-weight: 500;">1</h6></div>
+                <div class="col"><h6 style="font-weight: 500;">1025</h6></div>
+            </div>
+            <div class="row">
+                <div class="col p-3"><img src="{% static 'images/item3_women.jpeg' %}" width="45px" alt=""></div>
+                <div class="col-3"><h6 style="font-weight: 500;">Casual Full Sleeve Solid Women Black Top</h6></div>
+                <div class="col"><h6 style="font-weight: 500;">RS. 1529</h6></div>
+                <div class="col"><h6 style="font-weight: 500;">1</h6></div>
+                <div class="col"><h6 style="font-weight: 500;">1529</h6></div>
+            </div>
+            <div class="row">
+                <div class="col p-3"><img src="{% static 'images/item3_shirt.jpeg' %}" width="45px" alt=""></div>
+                <div class="col-3"><h6 style="font-weight: 500;">Men Slim Fit Checkered Spread Collar Casual Shirt</h6></div>
+                <div class="col"><h6 style="font-weight: 500;">RS. 1050</h6></div>
+                <div class="col"><h6 style="font-weight: 500;">1</h6></div>
+                <div class="col"><h6 style="font-weight: 500;">1050</h6></div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

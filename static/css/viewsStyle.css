@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=KoHo:wght@300&family=Roboto:wght@100&family=Vibur&family=Voces&display=swap');
+.root{
+    margin:0;
+    padding:0;  
+   
+}
+
+.nav-bar{
+    left: 0%;
+    right: 0%;
+    top: 8.33%;
+    background: #E40046;
+    }
+.logo-text{
+font-family: 'Vibur', cursive;
+font-style: normal;
+font-weight: normal;
+font-size: 34.5px;
+line-height: 49px;
+letter-spacing: 0.05em;
+float: left;
+color: #FFFFFF;
+}
+.logo-img{
+float: left;
+    border-radius: 20.5px;
+    width:82px;
+    height:80.57px;
+    filter: brightness(4.5);
+}
+.cart_img {
+    float: right;
+    width: 36px;
+    height: 36px;
+    filter: brightness(13.5) drop-shadow(2px 4px 29px black);
+}
+
+.cart-text{
+    float: right;
+    color: #ffff;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 19px;
+}
+.user_img{
+    float: right;
+    width: 27px;
+    height: 27px;
+}
+.text_info{
+    font-family: 'Roboto', sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 22px;
+line-height: 35px;
+/* identical to box height */
+color: #000000;
+}
+.offer_info{
+    
+font-family: 'Secular One', sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 17px;
+line-height: 25px;
+color: #008000;
+
+}
+.product_left{
+font-family: 'Rubik', sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+color: #C50000;
+
+}
+.product_detail{
+font-family: 'Secular One', sans-serif;
+}
+.btn-add_Cart{
+    font-family: 'Secular One', sans-serif;
+    background: #E40046;
+    color: #ffff;
+    font-weight: bold;
+}
+.btn-buy_now{
+    width: 122px;
+    font-family: 'Secular One', sans-serif;
+    background: #E40046;
+    color: #ffff;
+    font-weight: bold;
+
+}

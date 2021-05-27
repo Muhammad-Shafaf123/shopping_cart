@@ -1,0 +1,260 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Shopy</title>
+    <link rel="stylesheet" href="{% static 'css/indexStyle.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    
+<div class="root pages">
+    <div class="row sub-navbar">
+        <div class="col-md-6"><h6 class="pl-2 ad-text">India's Fastest Shopping Destination</h6></div>
+        <div class="col-md-6"></div>
+    </div>
+    <div class="row nav-bar">
+        <div class="col-md-3">
+            <img class="logo-img" src="{% static 'images/imgbin_logo-circlr-redmi-5-xiaomi-png.png' %}" alt="logo-image">
+            <h6 class="logo-text pt-3 ">MyShopy</h6>
+        </div>
+        <div class="col-md-6 ">
+            <div class="input-group pt-4">
+            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+              aria-describedby="search-addon" />
+            
+          </div></div>
+        <div class="col-md-3 pt-3">
+            <a href="{% url 'cart' %}">
+            <img class="cart_img pr-1" src="{% static 'images/icons8-fast-cart-64.png' %}" alt="cart_image">
+            <h6 class="cart-text pt-2 pr-2">Cart</h6>
+            </a>
+            <img class="user_img mr-5 mt-1" src="{% static 'images/icons8-change-user-50.png' %}" alt="user_icon">
+            <h6 class="cart-text pt-2 pr-2">User</h6>
+            
+        </div>
+    </div>
+    <div class="row mt-2" style="background: #FEF7F9;">
+        <div class="col-md-4 pt-3">
+            <ul style="display: flex; list-style-type: none;">
+                <li class="tab is-active" style="padding: inherit;">
+                    <a data-switcher data-tab="1">Men</a>
+                </li>
+                <li class="tab" style="padding: inherit;">
+                    <a data-switcher data-tab="2">Women</a>
+                </li>
+                <li class="tab" style="padding: inherit;">
+                    <a data-switcher data-tab="3">Kids</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+    </div>
+
+    <!-- men page -->
+    
+    <div  class="row pt-5 ml-3 page is-active"  data-page="1">
+        <div class="col-md-3 pl-5">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/iene.jpeg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Club York Cotton Blend Pink Shirt<br><hr>
+                
+                    </p>
+                    <span  class="amt-text">Rs. 1050</span> <br>
+                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
+                    <a href="{% url 'view' %}">
+                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/item2_shirt.jpeg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Men Slim Fit Solid Button Down Collar Shirt<br><br><hr>
+                
+                    </p>
+                    <span  class="amt-text">Rs. 2686</span> <br>
+                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
+                    <a href="{% url 'view' %}">
+                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/item3_shirt.jpeg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Men Slim Fit Checkered Spread Collar Casual Shirt<br><br><hr>
+                
+                    </p>
+                    <span  class="amt-text">Rs. 1050</span> <br>
+                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
+                    <a href="{% url 'view' %}">
+                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/item4_shirt.jpeg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Men Slim Fit Solid Spread Collar Casual Shirt<br><br><hr>
+                
+                    </p>
+                    <span  class="amt-text">Rs. 2700</span> <br>
+                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
+                    <a href="{% url 'view' %}">
+                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
+                        </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- women page -->
+
+    <div  class="row pt-5 ml-3 page"  data-page="2">
+        <div class="col-md-3 pl-5">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/item1_women.jpeg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Club York Cotton Blend Pink Shirt<br><hr>
+                
+                    </p>
+                    <span  class="amt-text">Rs. 1050</span> <br>
+                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
+                    <a href="{% url 'view' %}">
+                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/item2_women.jpeg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Club York Cotton Blend Pink Shirt<br><hr>
+                
+                    </p>
+                    <span  class="amt-text">Rs. 1050</span> <br>
+                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
+                    <a href="{% url 'view' %}">
+                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/item3_women.jpeg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Club York Cotton Blend Pink Shirt<br><hr>
+                
+                    </p>
+                    <span  class="amt-text">Rs. 1050</span> <br>
+                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
+                    <a href="{% url 'view' %}">
+                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/item4_women.jpeg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Club York Cotton Blend Pink Shirt<br><hr>
+                
+                    </p>
+                    <span  class="amt-text">Rs. 1050</span> <br>
+                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
+                    <a href="{% url 'view' %}">
+                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
+                        </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- kids page -->
+
+    <div  class="row pt-5 ml-3 page "  data-page="3">
+        <div class="col-md-3 pl-5">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/item1_kids.jpeg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Club York Cotton Blend Pink Shirt<br><hr>
+                
+                    </p>
+                    <span  class="amt-text">Rs. 1050</span> <br>
+                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
+                    <a href="{% url 'view' %}">
+                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/item2_kids.jpeg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Club York Cotton Blend Pink Shirt<br><hr>
+                
+                    </p>
+                    <span  class="amt-text">Rs. 1050</span> <br>
+                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
+                    <a href="{% url 'view' %}">
+                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/item3_kids.jpeg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Club York Cotton Blend Pink Shirt<br><hr>
+                
+                    </p>
+                    <span  class="amt-text">Rs. 1050</span> <br>
+                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
+                    <a href="{% url 'view' %}">
+                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/it.jpeg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Club York Cotton Blend Pink Shirt<br><hr>
+                
+                    </p>
+                    <span  class="amt-text">Rs. 1050</span> <br>
+                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
+                    <a href="{% url 'view' %}">
+                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="{% static 'js/scrip.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
