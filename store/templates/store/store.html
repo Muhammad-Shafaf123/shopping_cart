@@ -57,14 +57,15 @@
     <!-- men page -->
     
     <div  class="row pt-5 ml-3 page is-active"  data-page="1">
+        {% for product in products %}
         <div class="col-md-3 pl-5">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'images/iene.jpeg' %}" alt="Card image cap">
+                <img class="card-img-top" src="{{product.image.url}}" alt="Card image cap">
                 <div class="card-body">
-                    <p class="card-text">Club York Cotton Blend Pink Shirt<br><hr>
+                    <p class="card-text">{{product.name}}<br><hr>
                 
                     </p>
-                    <span  class="amt-text">Rs. 1050</span> <br>
+                    <span  class="amt-text">Rs.{{product.price|floatformat:2}}</span> <br>
                     <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
                     <a href="{% url 'view' %}">
                     <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
@@ -72,64 +73,22 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'images/item2_shirt.jpeg' %}" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Men Slim Fit Solid Button Down Collar Shirt<br><br><hr>
-                
-                    </p>
-                    <span  class="amt-text">Rs. 2686</span> <br>
-                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
-                    <a href="{% url 'view' %}">
-                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
-                        </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'images/item3_shirt.jpeg' %}" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Men Slim Fit Checkered Spread Collar Casual Shirt<br><br><hr>
-                
-                    </p>
-                    <span  class="amt-text">Rs. 1050</span> <br>
-                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
-                    <a href="{% url 'view' %}">
-                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
-                        </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'images/item4_shirt.jpeg' %}" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Men Slim Fit Solid Spread Collar Casual Shirt<br><br><hr>
-                
-                    </p>
-                    <span  class="amt-text">Rs. 2700</span> <br>
-                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
-                    <a href="{% url 'view' %}">
-                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
-                        </a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
+
     </div>
 
 <!-- women page -->
 
     <div  class="row pt-5 ml-3 page"  data-page="2">
+        {% for product in productsWomen %}
         <div class="col-md-3 pl-5">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'images/item1_women.jpeg' %}" alt="Card image cap">
+                <img class="card-img-top" src="{{product.image.url}}" alt="Card image cap">
                 <div class="card-body">
-                    <p class="card-text">Club York Cotton Blend Pink Shirt<br><hr>
+                    <p class="card-text">{{product.name}}<br><hr>
                 
                     </p>
-                    <span  class="amt-text">Rs. 1050</span> <br>
+                    <span  class="amt-text">Rs.{{product.price|floatformat:2}}</span> <br>
                     <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
                     <a href="{% url 'view' %}">
                     <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
@@ -137,64 +96,21 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'images/item2_women.jpeg' %}" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Club York Cotton Blend Pink Shirt<br><hr>
-                
-                    </p>
-                    <span  class="amt-text">Rs. 1050</span> <br>
-                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
-                    <a href="{% url 'view' %}">
-                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
-                        </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'images/item3_women.jpeg' %}" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Club York Cotton Blend Pink Shirt<br><hr>
-                
-                    </p>
-                    <span  class="amt-text">Rs. 1050</span> <br>
-                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
-                    <a href="{% url 'view' %}">
-                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
-                        </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'images/item4_women.jpeg' %}" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Club York Cotton Blend Pink Shirt<br><hr>
-                
-                    </p>
-                    <span  class="amt-text">Rs. 1050</span> <br>
-                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
-                    <a href="{% url 'view' %}">
-                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
-                        </a>
-                </div>
-            </div>
-        </div>
+         {% endfor %}
     </div>
 
 <!-- kids page -->
 
     <div  class="row pt-5 ml-3 page "  data-page="3">
+         {% for product in productsKids %}
         <div class="col-md-3 pl-5">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'images/item1_kids.jpeg' %}" alt="Card image cap">
+                <img class="card-img-top" src="{{product.image.url}}" alt="Card image cap">
                 <div class="card-body">
-                    <p class="card-text">Club York Cotton Blend Pink Shirt<br><hr>
+                    <p class="card-text">{{product.name}}<br><hr>
                 
                     </p>
-                    <span  class="amt-text">Rs. 1050</span> <br>
+                    <span  class="amt-text">Rs.{{product.price|floatformat:2}}</span> <br>
                     <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
                     <a href="{% url 'view' %}">
                     <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
@@ -202,51 +118,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'images/item2_kids.jpeg' %}" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Club York Cotton Blend Pink Shirt<br><hr>
-                
-                    </p>
-                    <span  class="amt-text">Rs. 1050</span> <br>
-                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
-                    <a href="{% url 'view' %}">
-                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
-                        </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'images/item3_kids.jpeg' %}" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Club York Cotton Blend Pink Shirt<br><hr>
-                
-                    </p>
-                    <span  class="amt-text">Rs. 1050</span> <br>
-                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
-                    <a href="{% url 'view' %}">
-                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'images/it.jpeg' %}" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Club York Cotton Blend Pink Shirt<br><hr>
-                
-                    </p>
-                    <span  class="amt-text">Rs. 1050</span> <br>
-                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
-                    <a href="{% url 'view' %}">
-                    <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
-                    </a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
 
