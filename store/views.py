@@ -5,8 +5,6 @@ import json
 from .models import *
 
 
-# Create your views here.
-
 
 def store(request):
 
@@ -17,7 +15,7 @@ def store(request):
         cartItems = order.get_cart_items
     else:
         items = []
-        order = {'get_cart_total': 0, 'get_cart_items': 0}
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping':False}
         cartItems = order['get_cart_items']
 
     products = ProductMen.objects.all()
@@ -36,7 +34,7 @@ def cart(request):
         cartItems = order.get_cart_items
     else:
         items = []
-        order = {'get_cart_total': 0, 'get_cart_items': 0}
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping':False}
         artItems = order['get_cart_items']
 
     context = {'items': items, 'order': order}
@@ -51,7 +49,7 @@ def checkout(request):
         cartItems = order.get_cart_items
     else:
         items = []
-        order = {'get_cart_total': 0, 'get_cart_items': 0}
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping':False}
         cartItems = order['get_cart_items']
     context = {'items': items, 'order': order, 'cartItems': cartItems}
     return render(request, 'store/checkout.html', context)
@@ -90,3 +88,12 @@ def updateItem(request):
         orderItem.delete()
 
     return JsonResponse('Item was added', safe=False)
+
+
+
+
+
+
+
+
+
