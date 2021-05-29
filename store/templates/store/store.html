@@ -7,6 +7,24 @@
     <title>My Shopy</title>
     <link rel="stylesheet" href="{% static 'css/indexStyle.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript">
+
+
+
+	</script>
+    <style>
+
+#cart-icon{width:25px;}
+#cart-total{
+    float:right;
+    color:gray;
+	background-color: white;
+	width: 20px;
+	height: 25px;
+	border-radius: 50%;
+	font-size: 14px;
+}
+    </style>
 </head>
 <body>
     
@@ -21,16 +39,15 @@
             <h6 class="logo-text pt-3 ">MyShopy</h6>
         </div>
         <div class="col-md-6 ">
-            <div class="input-group pt-4">
-            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-              aria-describedby="search-addon" />
-            
-          </div></div>
-        <div class="col-md-3 pt-3">
+            </div>
+        <div  class="col-md-3 pt-3">
             <a href="{% url 'cart' %}">
-            <img class="cart_img pr-1" src="{% static 'images/icons8-fast-cart-64.png' %}" alt="cart_image">
+
+            <img id="cart-icon" class="cart_img pr-1" src="{% static 'images/icons8-fast-cart-64.png' %}" alt="cart_image">
+                <span id="cart-total">{{cartItems}}</span>
             <h6 class="cart-text pt-2 pr-2">Cart</h6>
             </a>
+
             <img class="user_img mr-5 mt-1" src="{% static 'images/icons8-change-user-50.png' %}" alt="user_icon">
             <h6 class="cart-text pt-2 pr-2">User</h6>
             
@@ -55,10 +72,10 @@
     </div>
 
     <!-- men page -->
-    
+
     <div  class="row pt-5 ml-3 page is-active"  data-page="1">
         {% for product in products %}
-        <div class="col-md-3 pl-5">
+        <div class="col-md-3 pt-5 pl-5">
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="{{product.image.url}}" alt="Card image cap">
                 <div class="card-body">
@@ -66,7 +83,7 @@
                 
                     </p>
                     <span  class="amt-text">Rs.{{product.price|floatformat:2}}</span> <br>
-                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
+                    <button type="button" data-product={{product.id}} data-action="add"  class="btn btn-outline-success add-btn update-cart">Add Cart</button>
                     <a href="{% url 'view' %}">
                     <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
                         </a>
@@ -81,15 +98,15 @@
 
     <div  class="row pt-5 ml-3 page"  data-page="2">
         {% for product in productsWomen %}
-        <div class="col-md-3 pl-5">
+        <div class="col-md-3 pt-5  pl-5">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{product.image.url}}" alt="Card image cap">
+                <img class="card-img-top" src="{{product.imageURL}}" alt="Card image cap">
                 <div class="card-body">
                     <p class="card-text">{{product.name}}<br><hr>
                 
                     </p>
                     <span  class="amt-text">Rs.{{product.price|floatformat:2}}</span> <br>
-                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
+                    <button type="button" data-product={{product.id}} data-action="add"  class="btn btn-outline-success add-btn update-cart">Add Cart</button>
                     <a href="{% url 'view' %}">
                     <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
                         </a>
@@ -103,15 +120,15 @@
 
     <div  class="row pt-5 ml-3 page "  data-page="3">
          {% for product in productsKids %}
-        <div class="col-md-3 pl-5">
+        <div class="col-md-3  pt-5 pl-5">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{product.image.url}}" alt="Card image cap">
+                <img class="card-img-top" src="{{product.imageURL}}"  alt="Card image cap">
                 <div class="card-body">
                     <p class="card-text">{{product.name}}<br><hr>
                 
                     </p>
                     <span  class="amt-text">Rs.{{product.price|floatformat:2}}</span> <br>
-                    <button type="button" class="btn btn-outline-success l-2">Add Cart</button>
+                    <button type="button" data-product={{product.id}} data-action="add"  class="btn btn-outline-success add-btn update-cart">Add Cart</button>
                     <a href="{% url 'view' %}">
                     <button style="float: left;"  type="button" class="btn btn-dark mr-2">View</button>
                         </a>
@@ -123,7 +140,7 @@
 </div>
 
 
-
+<script src="{% static 'js/cart.js' %}"></script>
 <script src="{% static 'js/scrip.js' %}"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

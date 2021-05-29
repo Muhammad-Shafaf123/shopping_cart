@@ -7,7 +7,17 @@
     <title>cart</title>
     <link rel="stylesheet" href="{% static 'css/cartStyle.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .chg-quantity{
 
+
+	width: 12px;
+	cursor: pointer;
+	display: block;
+	margin-top: 5px;
+	transition:.1s;
+}
+    </style>
 </head>
 <body>
     <div class="root">
@@ -42,10 +52,10 @@
             </div>
             <div class="row pt-5">
                 <div class="col-md-4">
-                    <h4>Item: 4 </h4>
+                    <h4>Item: {{order.get_cart_items}}</h4>
                 </div>
                 <div class="col-md-4 ">
-                    <h5>Total: <strong>Rs. 3200.00</strong></h5>
+                    <h5>Total: <strong>Rs. {{order.get_cart_total}}</strong></h5>
                 </div>
                 <div class="col-md-4 ">
                     <a href="{% url 'checkout' %}">
@@ -65,29 +75,24 @@
                 <div class="col"><h6 style="font-weight: bolder;">Total</h6></div>
             </div>
             <hr>
+            {% for item in items %}
             <div class="row">
-                <div class="col p-3"><img src="{% static 'images/placeholder.png' %}" width="45px" alt=""></div>
-                <div class="col-3"><h6 style="font-weight: 500;">Boys Printed Pure Cotton T Shirt</h6></div>
-                <div class="col"><h6 style="font-weight: 500;">RS. 1025</h6></div>
-                <div class="col"><h6 style="font-weight: 500;">1</h6></div>
-                <div class="col"><h6 style="font-weight: 500;">1025</h6></div>
+                <div class="col p-3"><img src="{{item.product.imageURL}}" width="45px" alt=""></div>
+                <div class="col-3"><h6 style="font-weight: 500;">{{item.product.name}}</h6></div>
+                <div class="col"><h6 style="font-weight: 500;">Rs.{{item.product.price|floatformat:2}}</h6></div>
+                <div class="col">
+                    <p style="font-weight: 500; float:left;">
+                    {{item.quantity}}
+                    </p>
+                    <img data-product="{{item.product.id}}" data-action="add" class="ml-3 chg-quantity update-cart" src="{% static 'images/arrow-up.png' %}">
+                    <img data-product="{{item.product.id}}" data-action="remove" class="ml-3 chg-quantity update-cart" src="{% static 'images/arrow-down.png' %}">
+                </div>
+                <div class="col"><h6 style="font-weight: 500;">Rs.{{item.get_total}}</h6></div>
             </div>
-            <div class="row">
-                <div class="col p-3"><img src="{% static 'images/placeholder.png' %}" width="45px" alt=""></div>
-                <div class="col-3"><h6 style="font-weight: 500;">Casual Full Sleeve Solid Women Black Top</h6></div>
-                <div class="col"><h6 style="font-weight: 500;">RS. 1529</h6></div>
-                <div class="col"><h6 style="font-weight: 500;">1</h6></div>
-                <div class="col"><h6 style="font-weight: 500;">1529</h6></div>
-            </div>
-            <div class="row">
-                <div class="col p-3"><img src="{% static 'images/placeholder.png' %}" width="45px" alt=""></div>
-                <div class="col-3"><h6 style="font-weight: 500;">Men Slim Fit Checkered Spread Collar Casual Shirt</h6></div>
-                <div class="col"><h6 style="font-weight: 500;">RS. 1050</h6></div>
-                <div class="col"><h6 style="font-weight: 500;">1</h6></div>
-                <div class="col"><h6 style="font-weight: 500;">1050</h6></div>
-            </div>
-        </div>
+            {% endfor %}
 
+        </div>
+<script src="{% static 'js/cart.js' %}"></script>
     </div>
 </body>
 </html>

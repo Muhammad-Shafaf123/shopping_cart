@@ -7,7 +7,19 @@
     <title>checkout</title>
     <link rel="stylesheet" href="{% static 'css/checkoutStyle.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <style>
 
+#cart-icon{width:25px;}
+#cart-total{
+    float:right;
+    color:gray;
+	background-color: white;
+	width: 20px;
+	height: 25px;
+	border-radius: 50%;
+	font-size: 14px;
+}
+    </style>
 </head>
 <body>
     <div class="root">
@@ -23,7 +35,8 @@
             <div class="col-md-3 pt-3">
                  <a href="{% url 'cart' %}">
                 <img class="cart_img pr-1" src="{% static 'images/icons8-fast-cart-64.png' %}" alt="cart_image">
-                <h6 class="cart-text pt-2 pr-2">Cart</h6>
+                      <span id="cart-total">{{cartItems}}</span>
+                     <h6 class="cart-text pt-2 pr-2">Cart</h6>
                 </a>
                 <img class="user_img mr-5 mt-1" src="{% static 'images/icons8-change-user-50.png' %}" alt="cart_image">
                 <h6 class="cart-text pt-2 pr-2">User</h6>
@@ -82,15 +95,17 @@
                             <strong><h4>Order Summary</h4></strong><hr>
                         </div>
                     </div>
+                    {% for item in items %}
                     <div class="row">
-                        <div class="col-3 p-3"><img src="{% static 'images/placeholder.png' %}" width="65px" alt=""></div>
-                        <div class="col-5"><small style="color: gray;">Boys Printed Pure Cotton T Shirt</small></div>
-                        <div style="color: gray;" class="col-3">Rs. 2530</div>
-                        <div class="col-1 pl-1"><small style="color: gray;">x3</small></div>
+                        <div class="col-3 p-3"><img src="{{item.product.imageURL}}" width="65px" alt=""></div>
+                        <div class="col-5"><small style="color: gray;">{{item.product.name}}</small></div>
+                        <div style="color: gray;" class="col-3"><strong>Rs. {{item.product.price}}</strong></div>
+                        <div class="col-1 pl-1"><small style="color: gray;"><strong>x{{item.quantity}}</strong></small></div>
                     </div>
+                     {% endfor %}
                     <div class="row">
-                        <div class="col-12"><h6>Item: 3</h6></div>
-                        <div class="col-12">Total: Rs. 5246</div>
+                        <div class="col-12"><h6>Item:<strong> {{order.get_cart_items}}</strong></h6></div>
+                        <div class="col-12">Total: <strong> Rs. {{order.get_cart_total}}</strong></div>
                     </div>
 
                 </div>
