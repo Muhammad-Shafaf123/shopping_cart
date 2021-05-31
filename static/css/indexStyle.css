@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=KoHo:wght@300&family=Roboto:wght@100&family=Vibur&family=Voces&display=swap');
 .root{
     margin:0;
-    padding:0;  
+    padding:0;
 
 }
 .ad-text{
-    font-family: 'Voces', cursive; 
+    font-family: 'Voces', cursive;
 font-style: normal;
 font-weight: normal;
 font-size: 15.5px;
@@ -28,7 +28,7 @@ border-radius: 20.5px;
 width:82px;
 height:80.57px;
 filter: brightness(4.5);
-    
+
 }
 .logo-text{
     font-family: 'Vibur', cursive;

@@ -5,9 +5,7 @@ import json
 from .models import *
 
 
-
 def store(request):
-
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
@@ -15,14 +13,15 @@ def store(request):
         cartItems = order.get_cart_items
     else:
         items = []
-        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping':False}
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
         cartItems = order['get_cart_items']
 
     products = ProductMen.objects.all()
     productsWomen = ProductWomen.objects.all()
     productsKids = ProductKids.objects.all()
 
-    context = {'products': products, 'productsWomen': productsWomen, 'productsKids': productsKids, 'cartItems': cartItems}
+    context = {'products': products, 'productsWomen': productsWomen, 'productsKids': productsKids,
+               'cartItems': cartItems}
     return render(request, 'store/store.html', context)
 
 
@@ -34,7 +33,7 @@ def cart(request):
         cartItems = order.get_cart_items
     else:
         items = []
-        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping':False}
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
         artItems = order['get_cart_items']
 
     context = {'items': items, 'order': order}
@@ -49,7 +48,7 @@ def checkout(request):
         cartItems = order.get_cart_items
     else:
         items = []
-        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping':False}
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
         cartItems = order['get_cart_items']
     context = {'items': items, 'order': order, 'cartItems': cartItems}
     return render(request, 'store/checkout.html', context)
@@ -88,12 +87,3 @@ def updateItem(request):
         orderItem.delete()
 
     return JsonResponse('Item was added', safe=False)
-
-
-
-
-
-
-
-
-
