@@ -24,6 +24,14 @@
 	border-radius: 50%;
 	font-size: 14px;
 }
+#hellouser{
+    color: #ffff;
+    font-weight: bolder;
+    font-size: larger;
+    font-family: system-ui;
+    font-variant: common-ligatures;
+
+}
     </style>
 </head>
 <body>
@@ -47,10 +55,12 @@
                 <span id="cart-total">{{cartItems}}</span>
             <h6 class="cart-text pt-2 pr-2">Cart</h6>
             </a>
-
+            <a href="{% url 'register' %}">
             <img class="user_img mr-5 mt-1" src="{% static 'images/icons8-change-user-50.png' %}" alt="user_icon">
             <h6 class="cart-text pt-2 pr-2">User</h6>
             
+            </a>
+            <h6 id="hellouser" class="pt-2 pr-5">Hello, {{request.user}}</h6>
         </div>
     </div>
     <div class="row mt-2" style="background: #FEF7F9;">

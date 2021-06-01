@@ -1,9 +1,51 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from django.http import JsonResponse
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout
 import json
+import datetime
+from django.contrib import messages
+
 
 from .models import *
+from .forms import OrderForm, CreateUserForm
 
+
+
+
+def registerPage(request):
+    form = CreateUserForm()
+
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Account was created for ' + user)
+            return redirect('login')
+
+    context = {'form':form}
+    return render(request, 'store/register.html', context)
+
+def loginPage(request):
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request,user)
+            return redirect('store')
+        else:
+            messages.info(request, 'Username OR password is incorrect')
+    context = {}
+   
+    return render(request, 'store/login.html', context)
+
+def logoutUser(request):
+    return redirect('login')
 
 def store(request):
     if request.user.is_authenticated:
@@ -87,3 +129,37 @@ def updateItem(request):
         orderItem.delete()
 
     return JsonResponse('Item was added', safe=False)
+
+
+def processOrder(request):
+    print('User in not logged in',request.body)
+    return JsonResponse('Payment submitted..', safe=False)
+
+
+	# # transaction_id = datetime.datetime.now().timestamp()
+	# # data = json.loads(request.body)
+
+	# # if request.user.is_authenticated:
+	# # 	customer = request.user.customer
+	# # 	order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    # #     total = data['form']['total']
+    # #     order.transaction_id = transaction_id
+
+    # #     if total == order.get_cart_total:
+	# # 	    order.complete = True
+	# #     order.save()
+
+    # #     if order.shipping == True:
+	# # 	ShippingAddress.objects.create(
+	# # 	customer=customer,
+	# # 	order=order,
+	# # 	address=data['shipping']['address'],
+	# # 	city=data['shipping']['city'],
+	# # 	state=data['shipping']['state'],
+	# # 	zipcode=data['shipping']['zipcode'],
+	# # 	)
+
+
+	# else:
+   
+
